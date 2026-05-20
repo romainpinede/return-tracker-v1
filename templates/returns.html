@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Retours</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>Return Tracker</h1>
+        <p>Liste des retours enregistrés</p>
+    </header>
+
+    <nav>
+        <a href="/products">Produits</a>
+        <a href="/add-return">Ajouter un retour</a>
+        <a href="/returns">Retours</a>
+    </nav>
+
+    <h2>Retours</h2>
+
+    <!-- Returns are prepared in app.py with the product details -->
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Produit</th>
+                <th>Couleur</th>
+                <th>Taille</th>
+                <th>Raison</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in returns %}
+            <tr>
+                <td>{{ r.date }}</td>
+                <td>{{ r.product_name }}</td>
+                <td>{{ r.product_color }}</td>
+                <td>{{ r.product_size }}</td>
+                <td>{{ r.reason }}</td>
+                <td>{{ r.action }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
